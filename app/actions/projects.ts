@@ -8,34 +8,6 @@ import { z } from "zod";
 import { Project, projectCreateInputSchema, projectSchema } from "@/lib/types";
 
 /**
- * Server action to fetch all projects
- * Uses Drizzle schema types directly
- */
-// export async function getProjects(): Promise<Project[]> {
-//   try {
-//     // Fetch all projects from the database
-//     const allProjects = await db.select().from(projects).orderBy(asc(projects.id));
-
-//     // Parse with Zod schema to ensure type safety, using correct camelCase field names
-//     return allProjects.map(project => projectSchema.parse({
-//       id: project.id,
-//       title: project.title,
-//       description: project.description,
-//       icon: project.icon,
-//       items: project.items, // items should already be parsed correctly if stored as JSON
-//       createdAt: project.createdAt, // Use camelCase
-//       updatedAt: project.updatedAt  // Use camelCase
-//     }));
-//   } catch (error) {
-//     console.error("Error fetching projects:", error);
-//     // Consider re-throwing a more specific error or returning an empty array
-//     // depending on how you want the frontend to handle this failure.
-//     // For now, re-throwing to indicate failure.
-//     throw new Error("Failed to fetch projects due to data parsing or DB error.");
-//   }
-// }
-
-/**
  * Server action to create a new project
  * Uses revised server actions pattern with typed responses
  */
