@@ -8,3 +8,18 @@ export async function getProjects() {
 
   return res.json();
 }
+
+export async function getAbout() {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_CMS_URL}/api/globals/about`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch about content");
+  }
+
+  return res.json();
+}
